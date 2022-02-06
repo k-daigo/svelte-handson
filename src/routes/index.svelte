@@ -10,14 +10,27 @@
 </script>
 
 <script>
+	import { invalidate } from '$app/navigation';
 	export let todos;
+
+	async function compClick(id) {
+		await api.put(`/api/todo/${id}/complete`);
+		invalidate('/');
+	}
 </script>
 
-<h1>TODOアプリハンズオン</h1>
+<h1>TODO</h1>
 <a href="/todo/add">追加</a>
 
 <ul>
 	{#each todos as todo}
-		<li><a href="/todo/edit/{todo.id}">{todo.todo}</a></li>
+		<li>
+			<a href="/todo/edit/{todo.id}">{todo.todo}</a>
+			{#if !todo.finished}
+				<button on:click={compClick(todo.id)}>完了</button>
+			{:else}
+				済
+			{/if}
+		</li>
 	{/each}
 </ul>

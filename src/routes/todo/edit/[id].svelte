@@ -3,8 +3,6 @@
 
 	export async function load({ params }) {
 		const res = await api.get(`/api/todo/${params.id}`);
-		console.log('load');
-		console.table(res);
 		return {
 			props: { todo: res }
 		};

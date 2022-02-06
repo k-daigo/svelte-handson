@@ -12,8 +12,6 @@ async function send({ method, path, data }) {
 		.then((r) => r.text())
 		.then((json) => {
 			try {
-				console.log('fetch');
-				console.table(json);
 				return JSON.parse(json);
 			} catch (err) {
 				return json;
@@ -22,16 +20,13 @@ async function send({ method, path, data }) {
 }
 
 export function get(path) {
-	console.log(`get path=${path}`);
 	return send({ method: 'GET', path });
 }
 
 export function post(path, data) {
-	console.log(`post path=${path} data=${data}`);
 	return send({ method: 'POST', path, data });
 }
 
 export function put(path, data) {
-	console.log(`put path=${path} data=${data}`);
 	return send({ method: 'PUT', path, data });
 }
