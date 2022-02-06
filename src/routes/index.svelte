@@ -12,7 +12,7 @@
 
 <script>
 	import { invalidate } from '$app/navigation';
-	export let todos;
+	export let todos = [];
 
 	// TODOを完了にする
 	async function compClick(id) {
