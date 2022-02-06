@@ -1,10 +1,10 @@
-import todo from '$lib/TodoDb';
+import todoDb from '$lib/TodoDb';
 
 // TODOを追加する
 export async function post({ request }) {
 	const data = await request.json();
 
-	todo.add(data.todo);
+	todoDb.add(data.todo);
 
 	return { body: {} };
 }
