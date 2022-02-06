@@ -1,5 +1,6 @@
 import todoDb from '$lib/TodoDb';
 
+// TODOを完了にする
 export async function put({ params }) {
 	const { id } = params;
 

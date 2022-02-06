@@ -1,7 +1,8 @@
 <script context="module">
-	import * as api from '$lib/api_cli.js';
+	import * as api from '$lib/api_client.js';
 
 	export async function load({ params }) {
+		// TODOの取得
 		const res = await api.get(`/api/todo/${params.id}`);
 		return {
 			props: { todo: res }
@@ -14,6 +15,7 @@
 
 	export let todo;
 
+	// 編集したTODOを更新登録する
 	async function submit(event) {
 		await api.put(`/api/todo/${todo.id}`, { todo });
 		goto('/');

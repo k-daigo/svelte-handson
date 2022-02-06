@@ -1,8 +1,9 @@
 <script>
 	import { goto } from '$app/navigation';
-	import * as api from '$lib/api_cli.js';
+	import * as api from '$lib/api_client.js';
 	let todo = '';
 
+	// TODOを新規登録する
 	async function submit(event) {
 		await api.post('/api/todo', { todo });
 		goto('/');

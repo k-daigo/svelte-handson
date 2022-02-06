@@ -1,7 +1,8 @@
 <script context="module">
-	import * as api from '$lib/api_cli.js';
+	import * as api from '$lib/api_client.js';
 
 	export async function load({ params, session }) {
+		// TODOを全件取得する
 		const res = await api.get('/api/todos');
 		return {
 			props: { todos: res }
@@ -13,6 +14,7 @@
 	import { invalidate } from '$app/navigation';
 	export let todos;
 
+	// TODOを完了にする
 	async function compClick(id) {
 		await api.put(`/api/todo/${id}/complete`);
 		invalidate('/');

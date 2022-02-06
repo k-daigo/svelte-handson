@@ -1,5 +1,7 @@
+// リクエスト送信先
 const BASE_HOST = 'http://localhost:3000';
 
+// リクエストを送信する
 async function send({ method, path, data }) {
 	const opts = { method, headers: {} };
 
@@ -19,14 +21,17 @@ async function send({ method, path, data }) {
 		});
 }
 
+// GETリクエストを送信する
 export function get(path) {
 	return send({ method: 'GET', path });
 }
 
+// POSTリクエストを送信する
 export function post(path, data) {
 	return send({ method: 'POST', path, data });
 }
 
+// PUTリクエストを送信する
 export function put(path, data) {
 	return send({ method: 'PUT', path, data });
 }
